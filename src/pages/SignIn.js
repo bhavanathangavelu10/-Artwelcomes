@@ -1,4 +1,3 @@
-// ===== src/pages/SignIn.jsx =====
 import bgImage from '../image/projectartimg1.jpg';
 import React, { useState } from 'react';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
@@ -44,6 +43,31 @@ export default function SignIn() {
       navigate('/');
     } catch (err) {
       setError(err.message);
+    }
+  };
+
+  const inputStyle = {
+    background: 'rgba(255, 255, 255, 0.07)',
+    borderRadius: 2,
+    input: { color: '#fff' },
+    label: { color: '#fff' },
+    '& .MuiInputBase-root': {
+      color: '#fff'
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: '#ff80bf',
+        borderWidth: 2,
+        transition: '0.3s ease'
+      },
+      '&:hover fieldset': {
+        borderColor: '#FFD700',
+        boxShadow: '0 0 6px #FFD700'
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#fff',
+        boxShadow: '0 0 10px #ffb6c1'
+      }
     }
   };
 
@@ -110,7 +134,7 @@ export default function SignIn() {
                       </InputAdornment>
                     )
                   }}
-                  sx={{ background: 'rgba(255,255,255,0.1)', borderRadius: 1, input: { color: '#fff' }, label: { color: '#fff' } }}
+                  sx={inputStyle}
                 />
 
                 <TextField
@@ -134,7 +158,7 @@ export default function SignIn() {
                       </InputAdornment>
                     )
                   }}
-                  sx={{ background: 'rgba(255,255,255,0.1)', borderRadius: 1, input: { color: '#fff' }, label: { color: '#fff' } }}
+                  sx={inputStyle}
                 />
 
                 <Button

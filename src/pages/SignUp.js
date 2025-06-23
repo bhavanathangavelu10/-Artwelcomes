@@ -31,6 +31,7 @@ import {
   VisibilityOff
 } from '@mui/icons-material';
 
+import backgroundImage from '../image/blue2.jpg';
 import '../App.css';
 
 export default function SignUp() {
@@ -87,11 +88,11 @@ export default function SignUp() {
   };
 
   const inputStyle = {
-    background: 'rgba(255,255,255,0.07)',
-    input: { color: '#fff' },
-    label: { color: '#fff' },
+    background: 'rgba(255,255,255,0.75)',
+    input: { color: '#000' },
+    label: { color: '#000' },
     '& .MuiInputBase-root': {
-      color: '#fff',
+      color: '#000',
       borderRadius: 2
     },
     '& .MuiOutlinedInput-root': {
@@ -105,24 +106,26 @@ export default function SignUp() {
         boxShadow: '0 0 6px #FFD700'
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#fff',
+        borderColor: '#000',
         boxShadow: '0 0 10px #ffb6c1'
       }
     }
   };
 
   return (
-    <Box sx={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      p: 2,
-      backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${process.env.PUBLIC_URL}/img2siUP.jpg)`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      fontFamily: 'Poppins, sans-serif'
-    }}>
+    <Box
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        p: 2,
+        backgroundImage: `url(${backgroundImage})`, // ✅ Use image
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        fontFamily: 'Poppins, sans-serif'
+      }}
+    >
       <Card elevation={10} sx={{
         maxWidth: 420,
         width: '100%',
@@ -162,12 +165,7 @@ export default function SignUp() {
 
             <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%' }}>
               <Stack spacing={2}>
-                <TextField name="displayName" label="First Name" required fullWidth
-                  value={form.displayName} onChange={handleChange}
-                  InputProps={{
-                    startAdornment: <InputAdornment position="start"><PersonIcon /></InputAdornment>
-                  }} sx={inputStyle} />
-                   <TextField name="displayName" label="Last Name" required fullWidth
+                <TextField name="displayName" label="Full Name" required fullWidth
                   value={form.displayName} onChange={handleChange}
                   InputProps={{
                     startAdornment: <InputAdornment position="start"><PersonIcon /></InputAdornment>
@@ -185,7 +183,7 @@ export default function SignUp() {
                     startAdornment: <InputAdornment position="start"><LockOutlinedIcon /></InputAdornment>,
                     endAdornment: (
                       <InputAdornment position="end">
-                        <IconButton onClick={() => setShowPassword(!showPassword)} edge="end" sx={{ color: '#fff' }}>
+                        <IconButton onClick={() => setShowPassword(!showPassword)} edge="end" sx={{ color: '#000' }}>
                           {showPassword ? <VisibilityOff /> : <Visibility />}
                         </IconButton>
                       </InputAdornment>
